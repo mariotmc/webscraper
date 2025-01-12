@@ -1,0 +1,10 @@
+<%= link_to page, id: dom_id(page), class: "block w-fit bg-gray-50 p-4 rounded-md shadow hover:bg-gray-100" do %>
+  <p class="font-bold">
+    <%= page.name %>
+  </p>
+
+  <div class="font-medium">
+    <p><%= page.url.sub(/^https?:\/\//, "") %></p>
+    <%= render partial: "results/result", locals: { result: page.results.order(created_at: :desc).first } %>
+  </div>
+<% end %>

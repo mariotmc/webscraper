@@ -1,0 +1,20 @@
+<% content_for :title, "Pages" %>
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Pages</h1>
+    <%= link_to "Monitor new page", new_page_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+  </div>
+
+  <div id="pages" class="flex flex-wrap gap-4 mt-5 min-w-full">
+    <% if @pages.any? %>
+      <%= render partial: "page", collection: @pages %>
+    <% else %>
+      <p class="text-center my-10">No pages found.</p>
+    <% end %>
+  </div>
+</div>
