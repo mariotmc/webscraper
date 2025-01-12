@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   # GET /pages or /pages.json
   def index
-    @pages = Page.all
+    @pages = Page.includes(:last_result)
   end
 
   # GET /pages/1 or /pages/1.json

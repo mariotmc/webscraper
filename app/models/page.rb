@@ -1,6 +1,7 @@
 class Page < ApplicationRecord
   CHECK_TYPES = %w[text exists not_exists]
 
+  belongs_to :last_result, class_name: "Result", optional: true
   has_many :results, dependent: :destroy
 
   validates :name, presence: true
@@ -25,6 +26,7 @@ class Page < ApplicationRecord
                 !scraper.present?(selector: selector)
               end
 
-    results.create(success: result)
+    result = results.create(success: result)
+    update(last_result: result)
   end
 end

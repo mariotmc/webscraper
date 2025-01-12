@@ -4,7 +4,7 @@
   </p>
 
   <div class="font-medium">
-    <p><%= page.url.sub(/^https?:\/\//, "") %></p>
-    <%= render partial: "results/result", locals: { result: page.results.order(created_at: :desc).first } %>
+    <p class="text-sm text-blue-500"><%= page.url.sub(/^https?:\/\//, "") %></p>
+    <%= render partial: "results/result", locals: { result: page.last_result } %>
   </div>
 <% end %>

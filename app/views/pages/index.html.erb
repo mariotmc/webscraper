@@ -12,7 +12,7 @@
 
   <div id="pages" class="flex flex-wrap gap-4 mt-5 min-w-full">
     <% if @pages.any? %>
-      <%= render partial: "page", collection: @pages %>
+      <%= render partial: "page", collection: @pages.order(created_at: :desc) %>
     <% else %>
       <p class="text-center my-10">No pages found.</p>
     <% end %>
